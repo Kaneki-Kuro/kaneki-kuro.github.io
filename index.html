@@ -50,11 +50,15 @@
     }
     .avatar {
       width:160px; height:160px; border-radius:50%;
-      border:4px solid rgba(77,166,255,0.7);
-      box-shadow:0 0 20px rgba(77,166,255,0.5);
-      background:url('wallpaper.webp') center/cover no-repeat;
+      overflow: hidden; /* Ensures the image is clipped to the circle */
       margin-bottom:1.5rem;
       animation:pulse 3s ease-in-out infinite;
+      position: relative;
+    }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures the image fits the circle */
     }
     @keyframes pulse {
       0%,100% { transform:scale(1); box-shadow:0 0 15px rgba(77,166,255,0.4); }
@@ -133,7 +137,9 @@
 <body>
 
   <header id="home">
-    <div class="avatar"></div>
+    <div class="avatar">
+      <img src="BMW.jpg" alt="Harsh's Avatar" />
+    </div>
     <h1>Harsh</h1>
     <div class="subtitle">Developer of Minecraft • Discord Bots • Web</div>
   </header>
@@ -202,7 +208,7 @@
     <h2>Contact Me</h2>
     <p>Let’s collaborate on bots, craft Minecraft worlds, or build web magic—reach out:</p>
     <div class="contact-links">
-      <a href="https://minerel-store.github.io" target="_blank">🌐 Store</a>
+      <a href="https://kaneki-kuro.github.io/minerel-store/" target="_blank">🌐 Store</a> <!-- Updated link here -->
       <a href="https://github.com/MINEREL-STORE" target="_blank">🐙 GitHub</a>
       <a href="https://discord.gg/minerel" target="_blank">💬 Discord</a>
     </div>
