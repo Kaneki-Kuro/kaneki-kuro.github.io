@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ken | Developer Portfolio</title>
+  <link rel="icon" href="wallpaper.webp" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family:'Segoe UI',sans-serif;
+      color:#eee;
+      background:#000;
+      overflow-x:hidden;
+    }
+
+    header::before {
+      content:"";
+      position:fixed; top:0; left:0; width:100%; height:100%;
+      background: url('wallpaper.webp') center/cover no-repeat fixed;
+      filter: brightness(0.25) contrast(1.2);
+      z-index:-2;
+      transform: translateZ(-1px) scale(2);
+    }
+
+    nav {
+      position:sticky; top:0; z-index:100;
+      background:rgba(0,0,0,0.85); backdrop-filter:blur(6px);
+      text-align:center; padding:1rem 0;
+    }
+    nav a {
+      color:#4da6ff; text-decoration:none;
+      margin:0 1rem; font-weight:600;
+      position:relative; transition:color .3s;
+    }
+    nav a:hover { color:#fff; }
+    nav a::after {
+      content:""; position:absolute; left:0; bottom:-4px;
+      width:100%; height:2px; background:#4da6ff;
+      transform:scaleX(0); transform-origin:left;
+      transition:transform .3s;
+    }
+    nav a:hover::after { transform:scaleX(1); }
+
+    header {
+      height:100vh; display:flex; flex-direction:column;
+      justify-content:center; align-items:center; text-align:center;
+      padding:2rem; position:relative;
+    }
+    .avatar {
+      width:160px; height:160px; border-radius:50%;
+      border:4px solid rgba(77,166,255,0.7);
+      box-shadow:0 0 20px rgba(77,166,255,0.5);
+      background:url('wallpaper.webp') center/cover no-repeat;
+      margin-bottom:1.5rem;
+      animation:pulse 3s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { transform:scale(1); box-shadow:0 0 15px rgba(77,166,255,0.4); }
+      50%    { transform:scale(1.08); box-shadow:0 0 35px rgba(77,166,255,0.8); }
+    }
+    h1 {
+      font-size:3.5rem;
+      background:linear-gradient(90deg,#336699,#6699cc);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      animation:fadeInUp 1.5s ease forwards;
+    }
+    .subtitle {
+      font-size:1.2rem; color:#aaa; margin-top:.75rem;
+      animation:fadeInUp 1.5s ease .5s forwards; opacity:0;
+    }
+
+    section {
+      padding:6rem 1.5rem; max-width:900px; margin:auto;
+      opacity:0; transform:translateY(40px);
+      transition:opacity .8s ease, transform .8s ease;
+      background:rgba(0,0,0,0.6); border-radius:8px; margin-bottom:3rem;
+    }
+    section.visible {
+      opacity:1; transform:translateY(0);
+    }
+    h2 {
+      font-size:2rem; margin-bottom:1rem;
+      border-left:6px solid #4da6ff; padding-left:1rem;
+      color:#ddd;
+    }
+    h3 { margin-top:1.5rem; color:#66b2ff; }
+
+    p { line-height:1.6; margin-bottom:1.25rem; color:#ccc; }
+
+    .projects {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:1.5rem;
+    }
+    .card {
+      background:rgba(10,10,10,0.8);
+      border:1px solid rgba(77,166,255,0.3);
+      border-radius:12px; padding:1.5rem;
+      transition:transform .3s,box-shadow .3s;
+    }
+    .card:hover {
+      transform:translateY(-6px);
+      box-shadow:0 0 20px rgba(77,166,255,0.5);
+    }
+
+    .contact-links {
+      display:flex; flex-wrap:wrap; gap:1rem; margin-top:1rem;
+    }
+    .contact-links a {
+      padding:.75rem 1.5rem; background:rgba(10,10,10,0.8);
+      border:2px solid #4da6ff; color:#7ecbff; border-radius:8px;
+      text-decoration:none; font-weight:600;
+      transition:background .3s,color .3s,box-shadow .3s,transform .3s;
+    }
+    .contact-links a:hover {
+      background:#4da6ff; color:#000; transform:scale(1.05);
+      box-shadow:0 0 10px #4da6ff;
+    }
+
+    footer {
+      text-align:center; padding:3rem 1.5rem;
+      background:rgba(0,0,0,0.85); color:#666;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity:0; transform:translateY(30px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header id="home">
+    <div class="avatar"></div>
+    <h1>Harsh</h1>
+    <div class="subtitle">Developer of Minecraft • Discord Bots • Web</div>
+  </header>
+
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>MINEREL Server</h3>
+        <p>High-performance BoxPvP & Lifesteal server with custom economy, balanced combat, and integrated support tools.</p>
+      </div>
+      <div class="card">
+        <h3>MINEREL Store</h3>
+        <p>GitHub Pages storefront for ranks and donations, handcrafted in pure HTML/CSS to match our signature look.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hi, I'm <strong>Harsh</strong> (also known as <strong>Ken</strong>) — a passionate and experienced Discord bot developer,
+      Minecraft server specialist, and web developer.
+      From building powerful moderation bots and custom game mechanics to designing stunning, responsive websites — 
+      I bring ideas to life with clean code and creative solutions.
+    </p>
+    <p>
+      💼 <strong>Currently offering my development services for FREE</strong> — for a limited time!<br/>
+      If you're looking to take your community, server, or brand to the next level, now is the perfect time to collaborate.
+    </p>
+
+    <h2>🛠️ My Expertise</h2>
+
+    <h3>🎮 Minecraft Development</h3>
+    <ul style="margin-left:1.5rem;color:#ccc;">
+      <li>Custom server setups (BoxPvP, Lifesteal, Practice PvP, etc.)</li>
+      <li>Plugin configuration and optimization</li>
+      <li>Rank systems, permissions, and economy setups</li>
+      <li>Performance tuning for low-lag gameplay</li>
+    </ul>
+
+    <h3>🤖 Discord Bot Development</h3>
+    <ul style="margin-left:1.5rem;color:#ccc;">
+      <li>Fully custom bots (ticket systems, moderation, logging, etc.)</li>
+      <li>Slash commands & interaction-based systems</li>
+      <li>Auto-moderation filters and role automation</li>
+      <li>Database integrations and uptime optimization</li>
+    </ul>
+
+    <h3>🌐 Website Development</h3>
+    <ul style="margin-left:1.5rem;color:#ccc;">
+      <li>HTML/CSS/JS-based responsive websites</li>
+      <li>GitHub Pages and free hosting setups</li>
+      <li>Custom design matching themes/brands (e.g., anime, gaming, tech)</li>
+      <li>Landing pages, store fronts, and Discord-linked portals</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Let’s collaborate on bots, craft Minecraft worlds, or build web magic—reach out:</p>
+    <div class="contact-links">
+      <a href="https://minerel-store.github.io" target="_blank">🌐 Store</a>
+      <a href="https://github.com/MINEREL-STORE" target="_blank">🐙 GitHub</a>
+      <a href="https://discord.gg/minerel" target="_blank">💬 Discord</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Ken | Crafted in the shadows for MINEREL
+  </footer>
+
+  <script>
+    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(link.getAttribute('href'))
+          .scrollIntoView({ behavior:'smooth', block:'start' });
+      });
+    });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => en.isIntersecting && en.target.classList.add('visible'));
+    }, { threshold:0.15 });
+    document.querySelectorAll('section').forEach(s => io.observe(s));
+  </script>
+</body>
+</html>
